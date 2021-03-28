@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Here | Index</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&family=Roboto&display=swap" rel="stylesheet"> 
+    <style>
+        body
+        {
+            background-color:ivory;
+        }
+        #head
+        {
+            overflow: hidden;
+           float: left;
+            font-family: 'Poppins', sans-serif;
+            font-size: 50px;
+            padding-top: 12.5rem;
+            padding-left:10rem;            
+        }
+        #loginBox
+        {
+            width:350px;
+	        height:450px;
+            float: right;
+            margin-top: 10rem;
+            margin-right: 20rem;
+            background-color: white;
+            box-sizing: border-box;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0  #009B77;
+            text-align: center; 
+            font-family: 'Roboto',sans-serif;
+        }
+        #loginBox p{
+	        padding:0px;
+	        margin-bottom:5px;
+	        text-align:center;
+        }
+        #loginBox input{
+	        padding:0px;
+	        width:100%;
+	        margin-bottom:20px;
+        }
+        #loginBox input[type="text"],input[type = "password"]{
+            border: none;
+            border-radius: 20px;
+            margin: 10px;
+            border-bottom:1px solid white;
+            background:transparent;
+            outline:none;
+            color:black;
+            height:40px;
+            font-size:16px;
+            
+        }
+        #loginBox a{
+            
+            text-decoration:none;
+            color:#009B77;
+            font-family: 'Roboto',sans-serif;
+        }
+        #loginBox input[type="submit"]{
+            border:none;
+            outline:none;
+            background:#009B77;
+            color:white;
+            height:40px;
+            font-family: 'Poppins',sans-serif;
+            font-size:18px;
+            border-radius:20px;
+            width: 300px;            
+        }
+        #loginBox input[type= "submit"]:hover{
+            cursor:pointer;
+            background:white;
+            color:#009B77;
+            
+        }
+        
+        
+
+    </style>
+</head>
+
+<body>
+    <div id = "head">
+        <p style="color: #009B77">Serenity Here</p>
+        <p style="font-family: 'Roboto',sans-serif; font-size: 25px;"> Site for introverts and anonymous beings<br>&nbsp;&nbsp;&nbsp;&nbsp;do anything here, no one's gonna know</p>
+    </div>
+    <div id = "loginBox">
+        <h1 style = "font-family: 'Poppins',sans-serif;">
+            Login 
+        </h1>
+        <form action = "login" method="POST">
+            {%csrf_token %}
+            <p>Username</p>
+            <input type="text" id = "userId" name = "user" placeholder="Enter Username">
+            <p>Password</p>
+            <input type="password" id="pwdId" name="pwd" placeholder="Enter Password">
+            <input type="submit" value="Login" name = "submit">
+        </form>
+        
+        <a href="signup">Create Account</a>
+    </div>
+    <div>
+        {% for message in messages %}
+        <h3> {{message}}  </h3>
+        {% endfor %}
+</div>
+</body>
+</html>

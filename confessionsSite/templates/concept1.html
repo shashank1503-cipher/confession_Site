@@ -1,0 +1,146 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Here | Concept</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        #logo
+        {
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            transform: translate(0,0);
+            color:#009B77;
+            background-color: black;
+        }
+        #logo a
+        {
+            text-decoration: none;
+            color:#009B77;
+            font-size: 50px;
+            
+        }
+        body{
+            background-color: ivory;
+            margin: 0;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            width: 90%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+            grid-gap: 500px;
+        }
+        .box1{
+            height: 700px;
+            width: 900px;
+            position: relative;
+        }
+        .box2{
+            
+            position: relative;
+            margin-top: 170px;
+        }
+        p {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        h2 {
+            color: #50C878;
+            font-size: 35px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div id = logo>
+        <a href = "/main">Serenity Here</a>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          {% if user.is_authenticated %}
+          
+      
+          <a class="navbar-brand" href="#">Hello, {{ user.get_username }}</a>
+          {% endif %}
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              
+              <button class="btn btn-success" type="submit">
+                Search
+              </button>
+            </form>
+            <form action="/logout" method="get">
+            <button class="btn btn-outline-danger" type="submit">Logout</button></form>
+          </div>
+        </div>
+      </nav>
+    <div class="container">
+        <div class="box1">
+            <h2>Concept</h2>
+            <p>
+                SerenityHere was developed by SerenityHere Core Team of IIIT Kottayam. It was developed with a thought
+                that
+                the people who are introverts or the people who face difficulties on expressing their feelings and
+                emotions,
+                can do the mentioned with another way without any hesitation and lack of confidence because you will
+                have to
+                post your confessions anonymously. So, people will not be exposed to your identity and you can confess
+                to
+                anyone just by mentioning that person’s e-mail Id. We will send a message to him/her stating the
+                confession
+                without disclosing your identity. And believe us….! We will really not disclose your identity. And
+                people
+                can present their views on your posted confession. SerenityHere also gives you a very gripping and
+                captivating feature which will empower you with a function of our thought where you can post any
+                question
+                related to your any theme of your life like any academic problems, time management problems, family
+                issues,
+                etc. You will get different solutions by different people and you can go with the best one. <br><br>
+                The main fact is that people will not be able to judge you on your any higher aspects of life like
+                religion,
+                caste or on any type of your background. <br><br>
+                <font color="red">Please be sure to not to post any sensitive content. Our system will automatically censor the sensitive
+                contents but then also you are advised to abide by the social media rules and regulations and maintain
+                the
+                decorum of the site.</font>
+
+            </p>
+        </div>
+        <div class="box2">
+            <img src="{% static 'concept.gif'%}" alt="Image not found" height="400px" width="400px">
+        </div>
+    
+    </div>
+</body>
+</html>

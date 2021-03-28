@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Here | Signup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body
+        {
+            background-color:ivory;
+        }
+        #logo
+        {
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            font-size: 25px;
+            transform: translate(0,-25%);
+            color:#009B77;
+        }
+        #container{
+            background-color: white;
+            margin:10px;
+            padding: 10px;
+            width: 50rem;
+            box-sizing: border-box;
+            color:black;
+            font-family: 'Roboto',sans-serif;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0  #009B77;
+            
+
+
+        }
+         
+        #container input{
+            padding:none;
+
+            font-family: 'Roboto',sans-serif;
+
+        }
+        #container input[type = "text"] ,input[type = 'password']{
+            border: none;
+            margin-left:10px;
+            border-bottom:1px solid white;
+            background:transparent;
+            outline:none;
+            color:#000;
+            height:40px;
+            font-size:16px;
+            width:100%;
+        }
+        #container input[type="submit"]{
+            border:none;
+            outline:none;
+            background:#009B77;
+            color:white;
+            height:40px;
+            font-family:'Poppins',sans-serif;
+            font-size:18px;
+            border-radius:20px;
+            
+        }
+        #container input[type= "submit"]:hover{
+            cursor:pointer;
+            background:transparent;
+            color:#009B77;
+            
+        }
+        #container a{
+            
+            text-decoration:none;
+            color:#009B77;
+            font-family: 'Roboto',sans-serif;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <div id = logo>
+        <h1>Serenity Here</h1>
+    </div>
+    <center>
+    <div id = 'container'>
+        <center><h2 style="font-family: Poppins,sans-serif;">
+        Fill up the following details to get started
+        </h2></center>
+        <form action = "signup" method="POST">
+            {% csrf_token %}
+        <p style="text-align: left;">Enter your name</p>
+        <input type="text" name="name" id = "nameId" placeholder="Don't worry we wont disclose it">
+        <p style="text-align: left;">Password</p>
+        <input type="password" name = "pwd" id = "pwdId" placeholder="Don't disclose it to anyone">
+        <p style="text-align: left;">Confirm Password</p>
+        <input type="password" name = "Cpwd" id = "CpwdId" placeholder="Just to make sure we're good to go">
+        <p style="text-align: left;">Email</p>
+        <input type="text" name = "email" id = "email" placeholder="A lil bit of verification">
+        <input type= "submit" value="Get Started">
+    </form>
+    <p>Already have an account?<a href="/">Login</a> </p>
+    
+    </div>
+</center>
+<div>
+    <div>
+        {% for message in messages %}
+        <h3> {{message}}  </h3>
+        {% endfor %}
+</div>
+</div>
+</body>
+</html>
